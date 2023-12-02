@@ -52,7 +52,7 @@ struct Game {
 }
 
 impl Game {
-    fn max<'a>(&self, color: Color) -> Option<usize> {
+    fn max_cubes<'a>(&self, color: Color) -> Option<usize> {
         return self.samples.iter().map(|sample| sample.cubes.iter().filter(|cube| cube.color == color).count()).max();
     }
 }
@@ -118,9 +118,9 @@ fn puzzle_2() {
     for game in games {
         let bag = Bag {
             sets: vec![
-                (game.max(Color::RED).unwrap_or(0) as i32, Color::RED),
-                (game.max(Color::GREEN).unwrap_or(0) as i32, Color::GREEN),
-                (game.max(Color::BLUE).unwrap_or(0) as i32, Color::BLUE),
+                (game.max_cubes(Color::RED).unwrap_or(0) as i32, Color::RED),
+                (game.max_cubes(Color::GREEN).unwrap_or(0) as i32, Color::GREEN),
+                (game.max_cubes(Color::BLUE).unwrap_or(0) as i32, Color::BLUE),
             ]
         };
         let power: i32 = bag.sets.iter().map(|(count, _)| count).product();
