@@ -53,7 +53,7 @@ fn find_copies(cards: &Vec<Card>, original_card: &Card) -> i32 {
         let current_card = &cards[current_id as usize];
         let numbers = current_card.winning_numbers.intersection(&current_card.given_numbers);
 
-        let mut start = (current_id + 1) as usize;
+        let start = (current_id + 1) as usize;
         let end = start + numbers.count();
         for next_id in start..end {
             stack.push(next_id as i32);

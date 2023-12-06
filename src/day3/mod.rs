@@ -108,7 +108,6 @@ fn parse_input() -> EngineSchematic {
         }
         if let Some(number) = current_number.take() {
             numbers.push(number);
-            current_number = None;
         }
         rows.push(row)
     }
